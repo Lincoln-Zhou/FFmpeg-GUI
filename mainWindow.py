@@ -233,6 +233,7 @@ class Ui_ffmpegGUI(object):
             failMsg.setText('Fatal Error')
             failMsg.setInformativeText('An error happened and command cannot be executed. For more information, go to Show Details.')
             failMsg.setDetailedText(f'{sys.exc_info()[0]}')
+            failMsg.exec()
 
     def setupUi(self, ffmpegGUI):
         ffmpegGUI.setObjectName("ffmpegGUI")
