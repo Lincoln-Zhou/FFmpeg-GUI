@@ -202,7 +202,15 @@ class Ui_ffmpegGUI(object):
         if self.isTrim.isChecked():
             startTime = 3600 * self.sH.value() + 60 * self.sM.value() + self.sS.value()
             endTime = 3600 * self.eH.value() + 60 * self.eM.value() + self.eS.value()
-            trimCmd = ' -ss ' + str(startTime) + ' -to ' + str(endTime)
+            if startTime >= endTime:
+                errorMsg = QtWidgets.QMessageBox()
+                errorMsg.setText('Parameter Error.')
+                errorMsg.setWindowTitle('Error')
+                errorMsg.setDetailedText('Contradicted parameter, please check input.')
+                errorMsg.exec()
+                return
+            else:
+                trimCmd = ' -ss ' + str(startTime) + ' -to ' + str(endTime)
         # For convenience, time is formatted as seconds, decimal: 3
         # Generate ffmpeg trim parameter string
 
