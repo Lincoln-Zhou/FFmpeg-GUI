@@ -16,7 +16,7 @@ FFmpeg GUI combines the convenience and clarity of GUI with FFmpeg's great capab
 * Apple macOS 10.14 or later
 * Microsoft Windows 7 or later
 
-**Notice: Linux systems haven't been tested for compability**
+**Notice: Linux systems haven't been tested for compatibility**
 
 ## Run & Deployment
 * To run directly from `.py` file, make sure all `.py` files in `master` branch are in the same folder, and execute `python mainWIndow.py` from terminal.
