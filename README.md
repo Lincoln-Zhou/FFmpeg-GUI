@@ -42,4 +42,5 @@ The program is still in its early stage of development and bugs are unavoidable.
 The program is under GNU GPL v3 license. For more license information, refer to LICENSE.md
 
 ## Release History
+* 2020/05/21 0.1.1
 * 2020/05/05 0.1 Alpha
