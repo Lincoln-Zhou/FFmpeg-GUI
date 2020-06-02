@@ -3,6 +3,10 @@ A GUI video processing tool based on FFmpeg
 
 FFmpeg GUI combines the convenience and clarity of GUI with FFmpeg's great capability. This program is developed using Python and PyQt5 GUI framework.
 
+## Sample
+![image](https://github.com/Lang-Zhou/FFmpeg-GUI/blob/master/reserved/Sample.png)
+(Test Environment: macOS 10.15.5, Python 3.8.2)
+
 ## Dependency & Requirements
 
 ### Dependency
@@ -42,5 +46,6 @@ The program is still in its early stage of development and bugs are unavoidable.
 The program is under GNU GPL v3 license. For more license information, refer to LICENSE.md
 
 ## Release History
+* 2020/06/02 0.1.2
 * 2020/05/21 0.1.1
 * 2020/05/05 0.1 Alpha
