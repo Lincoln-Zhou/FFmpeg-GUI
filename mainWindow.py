@@ -58,6 +58,14 @@ class Ui_ffmpegGUI(object):
     def refresh(self):
         self.fileNameShow.setText(self.model.getFileName())
 
+    def convert(self, second: float) -> tuple:
+        hour, sec = divmod(second, 3600)
+        minute, sec = divmod(sec, 60)
+        secList = str(sec).split('.')
+        secList[1] = secList[1][0:3]
+        sec = float(secList[0] + '.' + secList[1])
+        return hour, minute, sec
+
     def showProperty(self):
         # Show input video property in text browser
         self.fileProperty.clear()
@@ -66,6 +74,19 @@ class Ui_ffmpegGUI(object):
             self.model.getFileName(): ' -v error -print_format json -show_format -show_streams'}).run(
             stdout=subprocess.PIPE)
         output = json.loads(meta[0].decode('utf-8'))
+        self.length = float(output['format']['duration'])
+        if self.length > 3603599.999:
+            errorMsg = QtWidgets.QMessageBox()
+            errorMsg.setText('File Error.')
+            errorMsg.setWindowTitle('Error')
+            errorMsg.setDetailedText('Input file size exceeds limit.')
+            errorMsg.exec()
+            return
+        # Set maximum acceptable input file length
+        defaultEndTrimHour, defaultEndTrimMinute, defaultEndTrimSecond = self.convert(second=self.length)
+        self.eH.setValue(int(defaultEndTrimHour))
+        self.eM.setValue(int(defaultEndTrimMinute))
+        self.eS.setValue(defaultEndTrimSecond)
         data = ['Media Name: ' + output['format']['filename'], 'Media Duration: ' + output['format']['duration'] + ' s',
                 'Media Size: ' + str(eval(output['format']['size'] + '/1048576')) + ' MB']
         try:
@@ -202,7 +223,7 @@ class Ui_ffmpegGUI(object):
         if self.isTrim.isChecked():
             startTime = 3600 * self.sH.value() + 60 * self.sM.value() + self.sS.value()
             endTime = 3600 * self.eH.value() + 60 * self.eM.value() + self.eS.value()
-            if startTime >= endTime:
+            if startTime >= endTime or endTime > self.length:
                 errorMsg = QtWidgets.QMessageBox()
                 errorMsg.setText('Parameter Error.')
                 errorMsg.setWindowTitle('Error')
@@ -212,7 +233,7 @@ class Ui_ffmpegGUI(object):
             else:
                 trimCmd = ' -ss ' + str(startTime) + ' -to ' + str(endTime)
         # For convenience, time is formatted as seconds, decimal: 3
-        # Generate ffmpeg trim parameter string
+        # Generate FFmpeg trim parameter string
 
         fileName, fileExt = os.path.splitext(self.model.getFileName())
         # Get fileName and fileExt to generate output parameters
@@ -412,7 +433,7 @@ class Ui_ffmpegGUI(object):
         self.startTime.setObjectName("startTime")
         self.sH = QtWidgets.QSpinBox(self.layoutWidget4)
         self.sH.setEnabled(False)
-        self.sH.setMaximum(99)
+        self.sH.setMaximum(1000)
         self.sH.setObjectName("sH")
         self.startTime.addWidget(self.sH)
         self.sM = QtWidgets.QSpinBox(self.layoutWidget4)
@@ -437,6 +458,7 @@ class Ui_ffmpegGUI(object):
         self.endTime.setObjectName("endTime")
         self.eH = QtWidgets.QSpinBox(self.layoutWidget4)
         self.eH.setEnabled(False)
+        self.eH.setMaximum(1000)
         self.eH.setObjectName("eH")
         self.endTime.addWidget(self.eH)
         self.eM = QtWidgets.QSpinBox(self.layoutWidget4)
