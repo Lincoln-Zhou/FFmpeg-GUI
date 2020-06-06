@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ffmpegGUI</class>
+ <widget class="QMainWindow" name="ffmpegGUI">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="startButton">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>510</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>20</y>
+      <width>781</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="fileInputWidget">
+     <item>
+      <widget class="QLabel" name="fileNameTitle">
+       <property name="text">
+        <string>File Name</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="fileNameShow"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="chooseFile">
+       <property name="text">
+        <string>Choose File</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>257</x>
+      <y>71</y>
+      <width>170</width>
+      <height>205</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="aPreference">
+     <item>
+      <widget class="QLabel" name="apTitle">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Audio Output Preferences</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="aQuality">
+       <item>
+        <widget class="QLabel" name="aqTitle">
+         <property name="text">
+          <string>Quality</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="aqO">
+         <property name="text">
+          <string>Original</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="aqH">
+         <property name="text">
+          <string>High</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="aqM">
+         <property name="text">
+          <string>Medium</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="aqL">
+         <property name="text">
+          <string>Low</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="aqD">
+         <property name="text">
+          <string>Detach Audio</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="aePreference">
+       <item>
+        <widget class="QLabel" name="aeTitle">
+         <property name="text">
+          <string>Encoding</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="aEncoding">
+         <item>
+          <property name="text">
+           <string>Original</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>71</y>
+      <width>170</width>
+      <height>266</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="vPreference">
+     <item>
+      <widget class="QLabel" name="vpTitle">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Video Output Preferences</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="vQuality">
+       <item>
+        <widget class="QLabel" name="vqTitle">
+         <property name="text">
+          <string>Quality</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="vqO">
+         <property name="text">
+          <string>Original</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="vqH">
+         <property name="text">
+          <string>High</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="vqM">
+         <property name="text">
+          <string>Medium</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="vqL">
+         <property name="text">
+          <string>Low</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="vqD">
+         <property name="text">
+          <string>Detach Video</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="vePreference">
+       <item>
+        <widget class="QLabel" name="veTitle">
+         <property name="text">
+          <string>Encoding</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="vEncoding">
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Original</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H.261</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H.263</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H.263+</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H.264</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>H.265/HEVC</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="vFPS">
+       <item>
+        <widget class="QCheckBox" name="isSetFPS">
+         <property name="text">
+          <string>Custom FPS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="FPS">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="wrapping">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <double>199.990000000000009</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>123</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="formatSetWidget">
+     <item>
+      <widget class="QLabel" name="formatTitle">
+       <property name="text">
+        <string>File Output Format:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="formatChoose">
+       <item>
+        <property name="text">
+         <string>Original</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.ape</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.avi</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.flac</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.mov</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.mp3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.mp4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.rmvb</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.wav</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>.wmv</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>320</y>
+      <width>245</width>
+      <height>89</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="trimWidget">
+     <item row="1" column="1">
+      <layout class="QHBoxLayout" name="startTime">
+       <item>
+        <widget class="QSpinBox" name="sH">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="sM">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="maximum">
+          <number>59</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="sS">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>59.999000000000002</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="startTitle">
+       <property name="text">
+        <string>From</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="endTitle">
+       <property name="text">
+        <string>To</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="endTime">
+       <item>
+        <widget class="QSpinBox" name="eH">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="eM">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="maximum">
+          <number>59</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="eS">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="decimals">
+          <number>3</number>
+         </property>
+         <property name="maximum">
+          <double>59.999000000000002</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QCheckBox" name="isTrim">
+       <property name="text">
+        <string>Trim</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>781</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="progressWidget">
+     <item>
+      <widget class="QLabel" name="progressTitle">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Processing Progress</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>70</y>
+      <width>291</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="filePropertyWidget">
+     <item row="0" column="0">
+      <widget class="QLabel" name="filePropertyTitle">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>File Property</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QTextBrowser" name="fileProperty">
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>ffmpeg GUI</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionCredits"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>isSetFPS</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>FPS</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sH</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>321</x>
+     <y>392</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sM</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>404</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>396</x>
+     <y>385</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>sS</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>eH</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>360</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>425</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>eM</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>352</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>380</x>
+     <y>423</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>isTrim</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>eS</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>448</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>browseslot()</slot>
+ </slots>
+</ui>
