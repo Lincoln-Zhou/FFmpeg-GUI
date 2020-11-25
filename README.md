@@ -16,7 +16,7 @@ FFmpeg GUI combines the convenience and clarity of GUI with FFmpeg's great capab
 ### Dependency
 * FFmpeg 4.0.5 or later
 * PyQt5
-* Python 3.4 or later
+* Python 3.4 or later ***(Python 3.9 or above Currently NOT Supported)***
 
 **Notice: Dependencies above are only needed when you run program directly from `.py` file**
 
