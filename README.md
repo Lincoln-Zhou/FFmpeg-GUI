@@ -1,7 +1,4 @@
 # FFmpeg-GUI
-**Warning:**
-
-**Current version of PyQt framework has no support for macOS Big Sur (11.0 or above), this program may not work properly on a Mac with the latest version of macOS installed. The project will be updated once PyQt receives an update for the new system.**
 
 A GUI video processing tool based on FFmpeg
 
@@ -16,18 +13,16 @@ FFmpeg GUI combines the convenience and clarity of GUI with FFmpeg's great capab
 ### Dependency
 * FFmpeg 4.0.5 or later
 * PyQt5
-* Python 3.4 or later ***(Python 3.9 or above Currently NOT Supported)***
-
-**Notice: Dependencies above are only needed when you run program directly from `.py` file**
+* Python 3.4 ~ 3.10 (Currently no tests are done on newer versions)
 
 ### System Requirements
-* macOS 10.13 High Sierra or later ***(macOS 11.0 Big Sur Currently NOT Supported)***
+* macOS 10.13 High Sierra or later
 * Microsoft Windows 7 or later
 * Linux (tested on Kali Linux 2020.3 with Python 3.8.5, no guarantee for all distributions)
 
 ## Run & Deployment
 * To run directly from `.py` file, make sure all `.py` files in `master` branch are in the same folder, and execute `python mainWIndow.py` from terminal.
-* In future updates, executable files packaged for macOS, Windows and major Linux distributions will be available.
+* In future updates, executable files packaged for macOS, Windows and major Linux distributions might be available.
 
 ## Todo List
 ### Short Term
